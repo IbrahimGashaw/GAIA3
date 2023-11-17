@@ -1,0 +1,59 @@
+{% extends "GICA/base.html" %}
+{% block title %} Payments Page {% endblock title%}
+{% block content %}
+
+<style>
+h2 {text-align: center;}
+</style>
+<h2>Payment Lists</h2>
+<body> 
+<div class="container">
+<table border='1'class="table table-dark table-striped"> 
+<thead>
+    <tr>
+        <th>Members ID Number	</th>
+        <th>Fullname		</th>
+        <th>Year		</th>
+        <th>January		</th>
+        <th>February		</th>
+        <th>March		</th>
+        <th>April		</th>
+        <th>May			</th>
+        <th>June		</th>
+        <th>July		</th>
+        <th>August		</th>
+        <th>September		</th>
+        <th>October		</th>
+        <th>November		</th>
+        <th>December		</th>
+        <th>Total		</th>
+   </tr>
+ </thead>
+ <tbody>
+    {% for item in payments %}
+    <tr>
+        <td>{{ item.DMID }}</td>
+        <td>{{ item.Fullname }}</td>
+        <td>{{ item.Year }}</td>
+        <td>{{ item.January }}</td>
+        <td>{{ item.February }}</td>
+        <td>{{ item.March }}</td>
+        <td>{{ item.April }}</td>
+        <td>{{ item.May }}</td>
+        <td>{{ item.June }}</td>
+        <td>{{ item.July }}</td>
+        <td>{{ item.August }}</td>
+        <td>{{ item.September }}</td>
+        <td>{{ item.October }}</td>
+        <td>{{ item.November }}</td>
+        <td>{{ item.December }}</td>
+        <td>{{ item.Total }}</td>
+    </tr>
+    {% endfor %}
+</tbody>
+</table>
+</div> 
+</body>
+
+{% endblock %}
+

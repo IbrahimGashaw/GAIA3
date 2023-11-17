@@ -1,0 +1,44 @@
+{% extends "GICA/base.html" %}
+{% block title %} Projects Page {% endblock title%}
+{% block content %}
+
+<style>
+h2 {text-align: center;}
+</style>
+<h2>All Events List</h2>
+<body> 
+<div class="container">
+<table border='1' class="table table-dark table-striped"> 
+<thead>
+    <tr>
+        <th>Event Name		</th>
+        <th>Event Description		</th>
+        <th>Start_date		</th>
+        <th>End_date		</th>
+        <th>Location		</th>
+        <th>Organizer		</th>
+        <th>Event_file		</th>
+        <th>Uploaded_date		</th>
+   </tr>
+ </thead>
+ <tbody>
+    {% for item in islamicevents %}
+    <tr>
+        <td>{{ item.Name }}</td>
+        <td>{{ item.Description }}</td>
+        <td>{{ item.Start_date }}</td>
+        <td>{{ item.End_date }}</td>
+        <td>{{ item.Location }}</td>
+        <td>{{ item.Organizer }}</td>
+        <td><a download href="{{ item.File.url|default_if_none:'#' }}"><button class="btn btn-outline-success">Download</button></a>
+   	<a href="{{ item.File.url|default_if_none:'#' }}"><button class="btn btn-outline-primary">View</button></a></td>
+        <td>{{ item.Uploaded_at }}</td>
+    </tr>
+    {% endfor %}
+</tbody>
+</table>
+</div> 
+</body>
+
+{% endblock %}
+

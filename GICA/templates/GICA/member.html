@@ -1,0 +1,18 @@
+{% extends "GICA/base.html" %}
+{% load static %}
+{% block content %}
+{% load crispy_forms_tags %}
+<div class="container">
+	<div class="h1 text-center mt-5" style="color:#775588;">Enter the Members Profile Information</div>
+    	<div class="content-section">
+      	<div class="media">
+        	<img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
+        	<div class="media-body">
+          	<h3 class="account-heading">{{ user.username }}</h3>
+          	<p class="text-secondary">{{ user.email }}</p>
+        	</div>
+      	</div>
+      <!-- FORM HERE -->
+    	</div>
+ </div>
+{% endblock content %}

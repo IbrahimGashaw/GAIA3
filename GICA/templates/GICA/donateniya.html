@@ -1,0 +1,30 @@
+{% extends "GICA/base.html" %}
+{% load crispy_forms_tags %}
+ {% load static %} 
+{% block content %}
+<div class="container">
+    <div class="content-section">
+        <form enctype="multipart/form-data" method="POST" action=" ">
+            {% csrf_token %}
+            <fieldset class="form-group">
+            	<div class="h1 text-center mt-5" style="color:#3c096c;">Enter Your donation Niya Details</div> 
+        	{{ form.as_p }}  
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-primary" style="font-size: 12px;" data-toggle="modal" data-target="#registerModal" type="submit">Submit</button>
+            </div>
+        </form>
+        <div class="border-top pt-3">
+        </div>
+    </div>
+</div>
+{% if messages %}
+		<div class="messages">
+		{% for message in messages %}
+			<div class="alert {% if message.tags %}alert-{{ message.tags }}"{% endif %}>
+				{{ message }}
+			</div>
+		{% endfor %}
+		</div>
+	{% endif %}
+{% endblock content %}

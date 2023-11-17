@@ -1,0 +1,39 @@
+{% extends "GICA/base.html" %}
+{% block title %} Projects Page {% endblock title%}
+{% block content %}
+
+<style>
+h2 {text-align: center;}
+</style>
+<h2>All members List</h2>
+<body> 
+<div class="container">
+<table border='1' class="table table-dark table-striped"> 
+<thead>
+    <tr>
+        <th>Members ID		</th>
+        <th>Members Full Name		</th>
+        <th>Phone_number		</th>
+        <th>Country		</th>
+        <th>Email		</th>
+        <th>Joined_date		</th>
+   </tr>
+ </thead>
+ <tbody>
+    {% for item in members %}
+    <tr>
+        <td>{{ item.MID }}</td>
+        <td>{{ item.Fullname }}</td>
+        <td>{{ item.Phone_number }}</td>
+        <td>{{ item.Country.name }}</td>
+        <td>{{ item.Email }}</td>
+        <td>{{ item.Joined_date }}</td>
+    </tr>
+    {% endfor %}
+</tbody>
+</table>
+</div> 
+</body>
+
+{% endblock %}
+

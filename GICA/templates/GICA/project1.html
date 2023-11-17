@@ -1,0 +1,42 @@
+{% extends "GICA/base.html" %}
+{% block title %} Projects Page {% endblock title%}
+{% block content %}
+
+<style>
+h2 {text-align: center;}
+</style>
+<h2>All Projects</h2>
+<body> 
+<div class="container">
+<table border='1'class="table table-dark table-striped"> 
+<thead>
+    <tr>
+        <th>Project ID		</th>
+        <th>Project Name		</th>
+        <th>Location		</th>
+        <th>Allocated_Budget		</th>
+        <th>Start_date		</th>
+        <th>End_date		</th>
+        <th>Project_File		</th>
+   </tr>
+ </thead>
+ <tbody>
+    {% for item in projects %}
+    <tr>
+        <td>{{ item.PID }}</td>
+        <td>{{ item.Pname }}</td>
+        <td>{{ item.Location }}</td>
+        <td>{{ item.Allocated_Budget }}</td>
+        <td>{{ item.Start_date }}</td>
+        <td>{{ item.End_date }}</td>
+        <td><a download href="{{ item.PFile.url|default_if_none:'#' }}"><button class="btn btn-outline-success">Download</button></a>
+   	<a href="{{ item.PFile.url|default_if_none:'#' }}"><button class="btn btn-outline-primary">View</button></a></td>
+    </tr>
+    {% endfor %}
+</tbody>
+</table>
+</div> 
+</body>
+
+{% endblock %}
+
